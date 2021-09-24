@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="image">
+    <img src="/static/phone.jpg" style="height: 600px;width: 1300px;">
+   
+            <header class="header">
+            <div class="button">
+                <a class="lnk"  style="float: left;" href="{%url 'home'%}"> Home</a>
+            <a class="lnk" href="{%url 'addpage'%}" >  Create Contact</a>
+            <a class="lnk"href="{%url 'updatepage'%}">  Update Contact </a>
+            <a class="active" class="lnk"href="{%url 'deletepage'%}" >  Delete Contact </a>
+            <a class="lnk"href="{%url 'displaypage'%}" >  Display Contact   </a>
+            </div>
+            </header>
+            <form action="deleteContact" method="POST">
+            {%csrf_token%}
+            <div class="form-group">
+            <div class="block">
+            <label class="control-label">Name to be deleted:</label>
+            <input class="form-control" type="text" name="name">
+            </div>
+            <input class="submit" type="submit" value="Delete">
+            </div>
+            </form>
+            <div class="errormsg">{{msg2}}{{msg}}</div>
+        </div>
+{%endblock%}

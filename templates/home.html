@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+      
+            <header class="header"> 
+                <div class="button">
+                    <h1 >Contact Book</h1>
+                <a  class="lnk" href="{%url 'addpage'%}" >  Create Contact</a>
+                <a class="lnk"href="{%url 'updatepage'%}">  Update Contact </a>
+                <a class="lnk"href="{%url 'deletepage'%}" >  Delete Contact </a>
+                <a class="lnk"href="{%url 'displaypage'%}" >  Display Contact   </a> 
+                </div>
+            </header>
+    <div class="image">
+        <img src="/static/phone.jpg" style="height:600px;width: 1300px;">
+       
+       
+</div>
+
+    {% endblock %}
+   
+

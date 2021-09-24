@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="image" >
+    <img src="/static/phone.jpg" style="height: 600px;width:1300px;">
+    <header class="header">
+        <div class="button">
+        <a class="lnk"  style="float: left;" href="{%url 'home'%}"> Home</a>
+        <a class="lnk" href="{%url 'addpage'%}" >Create Contact</a>
+        <a class="lnk"href="{%url 'updatepage'%}">Update Contact </a>
+        <a class="lnk"href="{%url 'deletepage'%}" >Delete Contact </a>
+        <a class="active" class="lnk"href="{%url 'displaypage'%}" >Display Contact </a>
+        </div>
+    </header>
+        <form action="displayContact" method="POST">
+        {%csrf_token%}
+        <div class="form-group" style="margin-top :40px;">
+            <button class="submit" type="submit" value="Display" >Display</button>
+          
+            <div class="tablediv">
+            <table class="table" style="overflow: scroll;position:relative;">
+                <tr>
+                    <th>{{name1}}</th>
+                    <th>{{contact1}}</th>
+                </tr>
+               
+                {%for i in contact%}
+               
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.number}}</td>
+                </tr>
+           
+                {%endfor%}
+           
+            </table>
+            
+        </div>
+        </div>
+           
+</form>    
+   
+   
+    </div>
+
+    {% endblock %}
+    

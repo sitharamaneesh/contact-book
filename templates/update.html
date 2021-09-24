@@ -1,0 +1,37 @@
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <div class="image">
+        <img src="/static/phone.jpg" style="height: 600px;width: 1300px;">
+         
+            <header class="header">
+                <div class="button">
+                    <a class="lnk"  style="float: left;" href="{%url 'home'%}"> Home</a>
+                <a class="lnk" href="{%url 'addpage'%}" >Create Contact</a>
+                <a  class="active" class="lnk"href="{%url 'updatepage'%}">Update Contact </a>
+                <a class="lnk"href="{%url 'deletepage'%}" >Delete Contact </a>
+                <a class="lnk"href="{%url 'displaypage'%}" >Display Contact   </a>
+                </div>
+            </header> 
+                <form action="updateContact" method="POST">
+                    {%csrf_token%}
+                        <div class="form-group">
+                        <div class="block">
+                        <label class="control-label">Name</label>
+                        <input placeholder="Enter name" class="form-control" type="text" required name="name">
+                        </div>
+                        <div class="block">
+                        <label class="control-label">New Name</label>
+                        <input class="form-control" type="text" name="newname">
+                        </div>
+                        <div class="block">
+                        <label class="control-label">New number(optional)</label>
+                        <input placeholder="Enter new number" class="form-control" type="text" name="newnumber" >
+                        </div>
+                        <input class="submit" type="submit" value="Update">
+                        </div>
+                </form>
+                <br><br><br><br>
+                <div class="errormsg" > {{msg}}</div>
+                </div>
+{%endblock%}
